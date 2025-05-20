@@ -10,6 +10,7 @@ import (
 	"go-learn-news-portal/library/v1/convert"
 	"go-learn-news-portal/library/v1/handling"
 	"go-learn-news-portal/library/v1/middleware"
+	"log/slog"
 	"net/http"
 	"slices"
 )
@@ -112,6 +113,8 @@ func (c *file) UploadFiles(ctx context.Context, fs []*entity.FileUpload) error {
 	var fileObjects []*radstore.FileHeader
 	var fileNames []string
 
+	var fileSumNow int64
+
 	accFileSize = 0
 	accFileSizeLimit = 0
 
@@ -162,6 +165,7 @@ func (c *file) UploadFiles(ctx context.Context, fs []*entity.FileUpload) error {
 
 		fileObjects = append(fileObjects, fha)
 		fileNames = append(fileNames, name)
+		fileSumNow += fileSize
 
 		//return fmt.Sprintf(path, Filename), nil
 		//
@@ -171,8 +175,8 @@ func (c *file) UploadFiles(ctx context.Context, fs []*entity.FileUpload) error {
 		//	File: storage.FileFromMultipartHeader(f.MFileHeader),
 		//}
 		//fileObjects = append(fileObjects, fileObject)
-		path := "https://storage.radarcoding.my.id"
 
+		path := "https://storage.radarcoding.my.id"
 		f.ObjectName = fmt.Sprintf("%s/%s", path, file.Name)
 		f.Size = fileSize
 	}
@@ -190,9 +194,20 @@ func (c *file) UploadFiles(ctx context.Context, fs []*entity.FileUpload) error {
 	//	return handling.NewHttpError(nil, http.StatusUnprocessableEntity, "user disk's quota is exceeded", handling.ERR_USER_QUOTA_EXCEEDED)
 	//}
 
+	sumFile, err := c.repo.SumSizeByUploaderID(ctx, uint(userId))
+	if err != nil {
+		return err
+	}
+
+	totalSum := sumFile + fileSumNow
+	slog.Info("total sum", slog.Int64("totalSum", totalSum), slog.String("|  Total Sum :", fmt.Sprintf("%.2fMB", float64(totalSum)/(1<<20))))
+	if totalSum > 26214400 {
+		return handling.NewHttpError(nil, http.StatusUnprocessableEntity, "user disk's quota is exceeded", constant.ERR_USER_QUOTA_EXCEEDED)
+	}
+
 	uploadCtx, cancel := context.WithCancel(context.Background())
 
-	err := c.storage.UploadFiles(uploadCtx, fileObjects)
+	err = c.storage.UploadFiles(uploadCtx, fileObjects)
 	if err != nil {
 		cancel()
 		return handling.NewHttpError500(err)
