@@ -11,3 +11,7 @@ type Category struct {
 	CreatedAt   time.Time  `gorm:"created_at" json:"created_at"`
 	UpdatedAt   *time.Time `gorm:"updated_at" json:"updated_at"`
 }
+
+func (Category) TableName() string {
+	return "app_news_categories"
+}

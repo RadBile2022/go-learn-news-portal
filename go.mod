@@ -3,7 +3,7 @@ module go-learn-news-portal
 go 1.23.1
 
 require (
-	github.com/RadBile2022/go-library-radstore v0.0.0-20250313141510-ec739d7baabf
+	github.com/RadBile2022/go-library-radstore v0.0.0-20250514101651-450c984db64c
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible
 	github.com/getsentry/sentry-go v0.31.1
 	github.com/go-chi/chi/v5 v5.2.1

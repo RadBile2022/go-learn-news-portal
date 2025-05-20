@@ -2,6 +2,7 @@ package convert
 
 import (
 	"fmt"
+	"github.com/google/uuid"
 	"math/big"
 	"math/rand"
 	"net/http"
@@ -68,9 +69,12 @@ func GenerateString(length int64) string {
 
 func GenerateFileName() string {
 	now := time.Now()
-	dateNow := now.Format("20060102150405")
-	randomString := GenerateString(7)
-	result := fmt.Sprintf("%s-%s", dateNow, randomString)
+	dateNow := now.Format("20060102150405.000")
+	uuidStr := uuid.New().String() // misal: "b8a2e7e6-3a4d-4a0d-a1f8-05b87d7b916e"
+	// ambil bagian depan saja kalau ingin pendek:
+	uuidShort := uuidStr[:8]
+	//randomString := GenerateString(7)
+	result := fmt.Sprintf("%s-%s", dateNow, uuidShort)
 	return result
 }
 
@@ -80,9 +84,9 @@ func GenerateFileNameWithSuffix(suffix string) string {
 	return result
 }
 
-func GenerateFileNameWithExt(ext string) string {
+func GenerateFileNameWithExt(userId int64, ext string) string {
 	filename := GenerateFileName()
-	result := fmt.Sprintf("%s.%s", filename, ext)
+	result := fmt.Sprintf("%d/%s.%s", userId, filename, ext)
 	return result
 }
 

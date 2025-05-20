@@ -1,1 +1,1 @@
-DROP TABLE IF EXISTS "contents";
+DROP TABLE IF EXISTS "app_news_contents";

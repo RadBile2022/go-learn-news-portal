@@ -9,6 +9,7 @@ import (
 	"github.com/go-chi/cors"
 	"github.com/spf13/viper"
 	"go-learn-news-portal/internal/framework/primary/rest"
+	"go-learn-news-portal/internal/framework/primary/rests"
 	appmiddleware "go-learn-news-portal/library/v1/middleware"
 	"log/slog"
 	"net/http"
@@ -40,14 +41,15 @@ func ChiStart() {
 	}))
 
 	r.Route("/api", func(r chi.Router) {
-		r.Mount("/", rest.NewAuth(core.authCore).Start(ctx))
+		r.Mount("/", rests.NewAuth(core.authCore).Start(ctx))
 
 		r.Route("/admin", func(r chi.Router) {
 			r.Use(appmiddleware.AuthMiddleware())
 
-			r.Mount("/users", rest.NewUser(core.userCore).Start(ctx))
-			r.Mount("/categories", rest.NewCategory(core.categoryCore).Start(ctx))
-			r.Mount("/contents", rest.NewContent(core.contentCore).Start(ctx))
+			r.Mount("/users", rests.NewUser(core.userCore).Start(ctx))
+			r.Mount("/categories", rests.NewCategory(core.categoryCore).Start(ctx))
+			r.Mount("/contents", rests.NewContent(core.contentCore).Start(ctx))
+			r.Mount("/files", rest.NewFile(core.fileCore).Start(ctx))
 			fmt.Println("Checking routes after mounting:")
 			_ = chi.Walk(r, func(method, route string, handler http.Handler, middlewares ...func(http.Handler) http.Handler) error {
 				fmt.Printf("%s %s\n", method, route)
@@ -55,7 +57,7 @@ func ChiStart() {
 			})
 		})
 
-		r.Mount("/fe", rest.NewFrontEnd(core.categoryCore, core.contentCore).Start(ctx))
+		r.Mount("/fe", rests.NewFrontEnd(core.categoryCore, core.contentCore).Start(ctx))
 	})
 
 	httpPort := fmt.Sprintf(":%v", viper.GetString("APP_PORT"))

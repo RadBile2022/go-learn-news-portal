@@ -1,11 +1,11 @@
-package rest
+package rests
 
 import (
 	"context"
 	"github.com/go-chi/chi/v5"
 	"go-learn-news-portal/internal/core/service"
-	"go-learn-news-portal/internal/framework/primary/rest/request"
-	"go-learn-news-portal/internal/framework/primary/rest/response"
+	"go-learn-news-portal/internal/framework/primary/rests/request"
+	"go-learn-news-portal/internal/framework/primary/rests/response"
 	"go-learn-news-portal/library/v1/convert"
 	"go-learn-news-portal/library/v1/router"
 	"go-learn-news-portal/library/v1/validator"

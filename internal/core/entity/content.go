@@ -18,6 +18,10 @@ type Content struct {
 	UpdatedAt   *time.Time `gorm:"updated_at" json:"updated_at"`
 }
 
+func (Content) TableName() string {
+	return "app_news_contents"
+}
+
 //type Content struct {
 //	ID          int64      `gorm:"id"`
 //	Title       string     `gorm:"title"`

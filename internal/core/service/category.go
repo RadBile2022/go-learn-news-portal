@@ -2,8 +2,8 @@ package service
 
 import (
 	"context"
-	"go-learn-news-portal/internal/framework/primary/rest/request"
-	"go-learn-news-portal/internal/framework/primary/rest/response"
+	"go-learn-news-portal/internal/framework/primary/rests/request"
+	"go-learn-news-portal/internal/framework/primary/rests/response"
 	"go-learn-news-portal/internal/framework/secondary/repository"
 )
 
