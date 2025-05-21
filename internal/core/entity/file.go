@@ -40,7 +40,7 @@ type FileMap struct {
 }
 
 var ValidFilesMapping = []FileMap{
-	{FileType: []string{"pdf", "png", "jpeg"}, Path: "radstore", LimitInMB: 5, IsAccumulated: false},
+	{FileType: []string{"pdf", "png", "jpeg", "jpg"}, Path: "radstore", LimitInMB: 5, IsAccumulated: false},
 }
 
 func FileTypeContains(arr []string, str string) bool {

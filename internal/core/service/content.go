@@ -4,14 +4,12 @@ import (
 	"context"
 	"fmt"
 	radstore "github.com/RadBile2022/go-library-radstore"
+	"go-learn-news-portal/client/lib"
 	"go-learn-news-portal/internal/framework/primary/rests/request"
 	"go-learn-news-portal/internal/framework/primary/rests/response"
 	"go-learn-news-portal/internal/framework/secondary/repository"
-	"go-learn-news-portal/library/v1/handling"
-	"go-learn-news-portal/library/v1/middleware"
 	"go-learn-news-portal/library/v1/pagination"
 	"mime/multipart"
-	"time"
 )
 
 type Content interface {
@@ -66,21 +64,40 @@ func (c *contentService) DeleteContent(ctx context.Context, req *request.Content
 }
 
 func (c *contentService) UploadImageR2(ctx context.Context, fhs []*multipart.FileHeader) (string, error) {
-	userId := middleware.GetUserIDFromContext(ctx)
-	path := "https://storage.radarcoding.my.id/%s"
-	Filename := fmt.Sprintf("%d-%d", userId, time.Now().UnixNano())
+	rootUrl := "<dm ke saya>"
 
-	fha := &radstore.FileHeader{
-		Filename:    Filename,
-		Size:        fhs[0].Size,
-		FileHandle:  radstore.FileFromMultipartHeader(fhs[0]),
-		ContentType: fhs[0].Header.Get("Content-Type"),
-	}
-
-	err := c.storage.UploadFiles(ctx, []*radstore.FileHeader{fha})
+	token, err := lib.Login(rootUrl, "<dm ke saya>", "<dm ke saya>")
 	if err != nil {
-		return "", handling.NewHttpError500(err)
+		return "", err
+	}
+	//fmt.Println("Token:", token)
+
+	fileNames, err := lib.Upload(rootUrl, token, []multipart.FileHeader{*fhs[0]})
+	if err != nil {
+		fmt.Println("Upload Error:", err)
+		return "", err
 	}
 
-	return fmt.Sprintf(path, Filename), nil
+	return fileNames["file1"].Filename, nil
+
+	// FIXME : Uncomment this when you want to use radstore
+	//userId := middleware.GetUserIDFromContext(ctx)
+	//rootPath := "https://storage.radarcoding.my.id/%s"
+	//Filename := fmt.Sprintf("%d-%d", userId, time.Now().UnixNano())
+	//path := fmt.Sprintf(rootPath,Filename)
+	//
+	//fha := &radstore.FileHeader{
+	//	Filename:    Filename,
+	//	Size:        fhs[0].Size,
+	//	FileHandle:  radstore.FileFromMultipartHeader(fhs[0]),
+	//	ContentType: fhs[0].Header.Get("Content-Type"),
+	//}
+	//
+	//err := c.storage.UploadFiles(ctx, []*radstore.FileHeader{fha})
+	//if err != nil {
+	//	return "", handling.NewHttpError500(err)
+	//}
+	//
+	//return path,nil
+
 }
