@@ -3,12 +3,12 @@ package service
 import (
 	"context"
 	"fmt"
-	radstore "github.com/RadBile2022/go-library-radstore"
 	"github.com/RadBile2022/go-learn-news-portal/client/lib"
 	"github.com/RadBile2022/go-learn-news-portal/internal/framework/primary/rests/request"
 	"github.com/RadBile2022/go-learn-news-portal/internal/framework/primary/rests/response"
 	"github.com/RadBile2022/go-learn-news-portal/internal/framework/secondary/repository"
 	"github.com/RadBile2022/go-learn-news-portal/library/v1/pagination"
+	radstore "github.com/RadBile2022/go-library-radstore"
 	"mime/multipart"
 )
 
@@ -80,7 +80,7 @@ func (c *contentService) UploadImageR2(ctx context.Context, fhs []*multipart.Fil
 
 	return fileNames["file1"].Filename, nil
 
-	// FIXME : Uncomment this when you want to use radstore
+	// //FIXME : Uncomment this when you want to use radstore
 	//userId := middleware.GetUserIDFromContext(ctx)
 	//rootPath := "https://storage.radarcoding.my.id/%s"
 	//Filename := fmt.Sprintf("%d-%d", userId, time.Now().UnixNano())
