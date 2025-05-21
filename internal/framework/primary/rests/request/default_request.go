@@ -2,7 +2,7 @@ package request
 
 import (
 	"errors"
-	"go-learn-news-portal/library/v1/convert"
+	"github.com/RadBile2022/go-learn-news-portal/library/v1/convert"
 	"net/http"
 )
 

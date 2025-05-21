@@ -1,7 +1,7 @@
 package router
 
 import (
-	"go-learn-news-portal/library/v1/response_library"
+	"github.com/RadBile2022/go-learn-news-portal/library/v1/response_library"
 	"net/http"
 )
 

@@ -2,7 +2,7 @@ package infrastructure
 
 import (
 	"database/sql"
-	"go-learn-news-portal/database/seeds"
+	"github.com/RadBile2022/go-learn-news-portal/database/seeds"
 	"log"
 	"log/slog"
 

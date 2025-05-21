@@ -3,7 +3,7 @@ package handling
 import (
 	"fmt"
 	"github.com/getsentry/sentry-go"
-	"go-learn-news-portal/library/v1/constant"
+	"github.com/RadBile2022/go-learn-news-portal/library/v1/constant"
 	"net/http"
 	"runtime/debug"
 )

@@ -2,9 +2,9 @@ package service
 
 import (
 	"context"
-	"go-learn-news-portal/internal/framework/primary/rests/request"
-	"go-learn-news-portal/internal/framework/primary/rests/response"
-	"go-learn-news-portal/internal/framework/secondary/repository"
+	"github.com/RadBile2022/go-learn-news-portal/internal/framework/primary/rests/request"
+	"github.com/RadBile2022/go-learn-news-portal/internal/framework/primary/rests/response"
+	"github.com/RadBile2022/go-learn-news-portal/internal/framework/secondary/repository"
 )
 
 type Category interface {

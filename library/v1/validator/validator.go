@@ -3,9 +3,9 @@ package validator
 import (
 	"encoding/json"
 	"fmt"
-	"go-learn-news-portal/library/v1/constant"
-	"go-learn-news-portal/library/v1/handling"
-	response "go-learn-news-portal/library/v1/response_library"
+	"github.com/RadBile2022/go-learn-news-portal/library/v1/constant"
+	"github.com/RadBile2022/go-learn-news-portal/library/v1/handling"
+	response "github.com/RadBile2022/go-learn-news-portal/library/v1/response_library"
 	"io"
 	"mime/multipart"
 	"net/http"

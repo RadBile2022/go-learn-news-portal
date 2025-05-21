@@ -2,8 +2,8 @@ package seeds
 
 import (
 	"github.com/rs/zerolog/log"
-	"go-learn-news-portal/internal/core/entity"
-	"go-learn-news-portal/library/v1/convert"
+	"github.com/RadBile2022/go-learn-news-portal/internal/core/entity"
+	"github.com/RadBile2022/go-learn-news-portal/library/v1/convert"
 	"gorm.io/gorm"
 )
 

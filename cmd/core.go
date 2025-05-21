@@ -4,9 +4,9 @@ import (
 	radstore "github.com/RadBile2022/go-library-radstore"
 	"github.com/getsentry/sentry-go"
 	"github.com/spf13/viper"
-	"go-learn-news-portal/infrastructure"
-	"go-learn-news-portal/internal/core/service"
-	"go-learn-news-portal/internal/framework/secondary/repository"
+	"github.com/RadBile2022/go-learn-news-portal/infrastructure"
+	"github.com/RadBile2022/go-learn-news-portal/internal/core/service"
+	"github.com/RadBile2022/go-learn-news-portal/internal/framework/secondary/repository"
 	"time"
 )
 

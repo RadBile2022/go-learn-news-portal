@@ -1,4 +1,4 @@
-module go-learn-news-portal
+module github.com/RadBile2022/go-learn-news-portal
 
 go 1.23.1
 

@@ -1,8 +1,8 @@
 package main
 
 import (
-	"go-learn-news-portal/infrastructure"
-	"go-learn-news-portal/internal/core/entity"
+	"github.com/RadBile2022/go-learn-news-portal/infrastructure"
+	"github.com/RadBile2022/go-learn-news-portal/internal/core/entity"
 	"log"
 
 	"github.com/spf13/viper"

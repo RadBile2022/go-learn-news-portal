@@ -4,8 +4,8 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	"go-learn-news-portal/internal/core/entity"
-	"go-learn-news-portal/library/v1/handling"
+	"github.com/RadBile2022/go-learn-news-portal/internal/core/entity"
+	"github.com/RadBile2022/go-learn-news-portal/library/v1/handling"
 
 	"gorm.io/gorm"
 )

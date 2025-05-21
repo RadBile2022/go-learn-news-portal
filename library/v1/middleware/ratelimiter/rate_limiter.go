@@ -2,8 +2,8 @@ package ratelimiter
 
 import (
 	"github.com/go-chi/httprate"
-	"go-learn-news-portal/library/v1/constant"
-	response "go-learn-news-portal/library/v1/response_library"
+	"github.com/RadBile2022/go-learn-news-portal/library/v1/constant"
+	response "github.com/RadBile2022/go-learn-news-portal/library/v1/response_library"
 	"net/http"
 	"time"
 )

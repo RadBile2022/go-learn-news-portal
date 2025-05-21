@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"go-learn-news-portal/client/lib"
+	"github.com/RadBile2022/go-learn-news-portal/client/lib"
 )
 
 func main() {

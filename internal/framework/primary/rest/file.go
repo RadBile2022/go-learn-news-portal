@@ -2,13 +2,13 @@ package rest
 
 import (
 	"context"
-	"go-learn-news-portal/internal/core/entity"
-	"go-learn-news-portal/internal/core/service"
-	"go-learn-news-portal/library/dto/response"
-	"go-learn-news-portal/library/v1/constant"
-	"go-learn-news-portal/library/v1/handling"
-	"go-learn-news-portal/library/v1/router"
-	"go-learn-news-portal/library/v1/validator"
+	"github.com/RadBile2022/go-learn-news-portal/internal/core/entity"
+	"github.com/RadBile2022/go-learn-news-portal/internal/core/service"
+	"github.com/RadBile2022/go-learn-news-portal/library/dto/response"
+	"github.com/RadBile2022/go-learn-news-portal/library/v1/constant"
+	"github.com/RadBile2022/go-learn-news-portal/library/v1/handling"
+	"github.com/RadBile2022/go-learn-news-portal/library/v1/router"
+	"github.com/RadBile2022/go-learn-news-portal/library/v1/validator"
 	"net/http"
 	"strings"
 

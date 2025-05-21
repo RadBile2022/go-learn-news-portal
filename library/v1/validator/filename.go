@@ -2,8 +2,8 @@ package validator
 
 import (
 	"fmt"
-	"go-learn-news-portal/library/v1/constant"
-	"go-learn-news-portal/library/v1/handling"
+	"github.com/RadBile2022/go-learn-news-portal/library/v1/constant"
+	"github.com/RadBile2022/go-learn-news-portal/library/v1/handling"
 	"net/http"
 	"strings"
 )

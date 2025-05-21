@@ -2,8 +2,8 @@ package request
 
 import (
 	"context"
-	"go-learn-news-portal/internal/core/entity"
-	"go-learn-news-portal/library/v1/middleware"
+	"github.com/RadBile2022/go-learn-news-portal/internal/core/entity"
+	"github.com/RadBile2022/go-learn-news-portal/library/v1/middleware"
 )
 
 type ContentID struct {

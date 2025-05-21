@@ -2,8 +2,8 @@ package middleware
 
 import (
 	"context"
-	"go-learn-news-portal/library/v1/handling"
-	"go-learn-news-portal/library/v1/router"
+	"github.com/RadBile2022/go-learn-news-portal/library/v1/handling"
+	"github.com/RadBile2022/go-learn-news-portal/library/v1/router"
 	"net/http"
 
 	"github.com/google/uuid"

@@ -4,13 +4,13 @@ import (
 	"context"
 	"errors"
 	"github.com/dgrijalva/jwt-go"
-	"go-learn-news-portal/internal/core/entity"
-	"go-learn-news-portal/internal/framework/primary/rests/request"
-	"go-learn-news-portal/internal/framework/primary/rests/response"
-	"go-learn-news-portal/internal/framework/secondary/repository"
-	"go-learn-news-portal/library/v1/convert"
-	"go-learn-news-portal/library/v1/handling"
-	"go-learn-news-portal/library/v1/middleware"
+	"github.com/RadBile2022/go-learn-news-portal/internal/core/entity"
+	"github.com/RadBile2022/go-learn-news-portal/internal/framework/primary/rests/request"
+	"github.com/RadBile2022/go-learn-news-portal/internal/framework/primary/rests/response"
+	"github.com/RadBile2022/go-learn-news-portal/internal/framework/secondary/repository"
+	"github.com/RadBile2022/go-learn-news-portal/library/v1/convert"
+	"github.com/RadBile2022/go-learn-news-portal/library/v1/handling"
+	"github.com/RadBile2022/go-learn-news-portal/library/v1/middleware"
 )
 
 type Auth interface {

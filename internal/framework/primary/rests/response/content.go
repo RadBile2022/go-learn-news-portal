@@ -1,7 +1,7 @@
 package response
 
 import (
-	"go-learn-news-portal/internal/core/entity"
+	"github.com/RadBile2022/go-learn-news-portal/internal/core/entity"
 	"strings"
 )
 
